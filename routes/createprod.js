@@ -10,7 +10,6 @@ router.get('/',admin, async (req, res) => {
 
 router.post('/',admin, async (req, res) => {
   const user = req.user
-  console.log(user)
   const product = new Product({
     title: req.body.title,
     description: req.body.description,
@@ -22,9 +21,6 @@ router.post('/',admin, async (req, res) => {
   try {
     await product.save()
     res.redirect('/products')
-    // res.status(200).json({ status: 'success' })
-    console.log("product" + product)
-
   } catch (err) {
     console.log('ERROR saving product' + err)
   }

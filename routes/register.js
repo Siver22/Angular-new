@@ -5,14 +5,10 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const router = Router()
 
-router.get('/', (req, res) => {
-  
-})
 
 router.post('/', async (req, res) => {
   try {
     const { Role, IdNumber, address, addressOption, fname, lname, email, password, phoneNumber, img } = req.body
-    console.log("++++ req.register", req.body)
     const candidate = await User.findOne({ email })
 
     if (candidate) {
@@ -46,12 +42,10 @@ router.post('/', async (req, res) => {
           res.status(200).json({
             user, token
           })
-          // res.redirect('/profile')
         }
       })
       res.cookie('token', token, { httpOnly: true })
     }
-    console.log(" ++++++++++++++++++++++++++ register", candidate)
   } catch (err) {
     console.log(err)
   }

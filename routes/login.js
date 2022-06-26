@@ -5,9 +5,6 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const router = Router()
 
-router.get('/', (req, res) => {
-  
-})
 
 router.get('/logout', passport.authenticate('local'), async (req, res) => {
   req.session.destroy(() => {
@@ -20,7 +17,6 @@ router.post('/', async (req, res) => {
   try {
     const { email, password } = req.body
     const candidate = await User.findOne({ email: email })
-    console.log("======== candidate", candidate.email)
     if (!candidate) {
       return (new Error('Email does not exist'));
     }
@@ -30,7 +26,6 @@ router.post('/', async (req, res) => {
     } else {
       req.session.user = candidate
       req.session.isAuthenticated = true
-      console.log("login session " + req.session.isAuthenticated)
       req.session.save(err => {
         if (err) {
           console.error("session err" + err)
@@ -44,7 +39,6 @@ router.post('/', async (req, res) => {
             failureRedirect: '/',
             failureFlash: true
           }),
-            console.log("Candidate", candidate.fname);
           res.cookie('token', accessToken, { httpOnly: true , secure:true})
           res.json({ candidate, accessToken })
         }

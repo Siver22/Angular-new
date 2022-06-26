@@ -6,11 +6,9 @@ const router = Router()
 router.get('/', auth, async (req, res) => {
   const user = await User.find(req.user)
   res.json(user)
-  // res.render('profile', { title: 'Profile', user })
 })
 
 router.post('/edit', auth, async (req, res) => {
-  console.log(req.body.IdNumber)
   User.updateOne({
     'email': req.body.email,
   },
@@ -28,7 +26,6 @@ router.post('/edit', auth, async (req, res) => {
       if (err) {console.log(err)}
       else {console.log(usr)}
     })
-  // res.json({ success: true })
 })
 
 router.get('/remove/:id', auth, async (req, res) => {

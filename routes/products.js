@@ -6,15 +6,9 @@ const router = Router()
 router.get('/', async  (req, res) => {
   const product = await Product.find()
   res.json(product)
-  // JSON.stringify(product)
-  // res.render('products', {
-  //   title: 'Menu',
-  //   product
-  // })
 })
 
 router.post('/edit',admin, async (req, res) => {
-  console.log(req.body.title)
   Product.updateOne({
     'title': req.body.title,
   },
@@ -42,7 +36,6 @@ router.delete('/remove/:id',admin, async (req, res) => {
 router.get('/:id', async (req, res) => {
   const product = await Product.findById(req.params.id)
   res.json(product)
-  // res.render('Product', { layout: 'empty', product })
 })
 
 
