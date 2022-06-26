@@ -1,0 +1,41 @@
+<div class="text-center">
+  <h3 class="text-info text-center m-3">Register</h3>
+  <form action='/register' id='register' method="POST" class="p-5"> 
+    <div class="form-group">
+      <label class="form-label"><strong>User Type</strong></label><br>
+      <select name="Role" id="Role" class="form-control">
+        <option value="Customer" role='Customer' name="Role.Customer" id="Role.Customer">Customer</option>
+        <option value="Admin" role='Admin' name="Role.Admin" id="Role.Admin">Admin</option>
+      </select><br>
+      <label for="IdNumber">Id Number</label><br>
+      <input type="number" name='IdNumber' class="form-control" id="IdNumber"><br>  
+    </div>
+    <div class="form-group">
+      <label for="fname" class="form-label">First name</label><br>
+      <input type="text" name='fname' class="form-control" id="fname" placeholder="Enter Name"/><br> 
+      <label for="lname" class="form-label">Last name</label><br>
+      <input type="text" name='lname' class="form-control" id="lname" placeholder="Enter Name"/><br>   
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label><br>
+      <input type="email" name='email' id="email" class="form-control" placeholder="Enter Email" required><br>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br>
+      <label for="phoneNumber" class="form-label">Phone Namber</label><br>
+      <input type="tel" name='phoneNumber' id='phoneNumber' class="form-control"placeholder="Enter Phone number" pattern="[0-9]{9,10}"><br>
+    </div>
+    <div class="form-group">
+      <label for="address" class="form-label">Address</label><br>
+      <input type="text" name='address' id='address' class="form-control" placeholder="Enter Address" required/><br> 
+      <label for="addressOption" class="form-label">Zip Code</label><br>
+      <input type="text" name='addressOption' id='addressOption' class="form-control" placeholder="Enter Zip-code" required/><br>   
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label><br> 
+      <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required /><br>
+      <label for="repassword" class="form-label">Re enter Password</label><br>
+      <input type="password" class="form-control" name="repassword" id="repassword" placeholder="Enter Password" required><br>  
+    </div>
+    <br><button type="submit" class="btn btn-outline-info ">Submit</button>
+  </form>
+</div>
+</div>
