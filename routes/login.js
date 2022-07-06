@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
             failureRedirect: '/',
             failureFlash: true
           }),
-          res.cookie('token', accessToken, { httpOnly: true , secure:true})
+          res.cookie('token', accessToken,{ httpOnly: true , secure:true})
           res.json({ candidate, accessToken })
         }
       })
